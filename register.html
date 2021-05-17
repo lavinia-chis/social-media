@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="icon.png" />
+  </head>
+  <body class="account">
+    <div class="accountForm">
+      <h2>Register</h2>
+      <form action="index.html" method="POST">
+        <input type="text" placeholder="First name" required name="fname" />
+        <input type="text" placeholder="Last name" required name="lname" />
+        <input
+          type="email"
+          placeholder="E-mail address"
+          required
+          name="email"
+        />
+        <input type="password" placeholder="Password" required name="pass" />
+        <input type="password" placeholder="Password" required name="pass2" />
+        <label>
+          <input type="checkbox" name="newsletter" />
+          I want to subscribe to newsletter
+        </label>
+        <label>
+          <input type="checkbox" name="terms" />
+          I agree with the <a href="#">Terms & Conditions</a>
+        </label>
+        <input type="submit" value="Create my account" />
+        <p>Already have an account? <a href="index.html">Log in</a></p>
+      </form>
+    </div>
+  </body>
+</html>
