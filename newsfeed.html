@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in</title>
+
+    <script>
+      if (localStorage.token === undefined) {
+        window.location.href = "./index.html";
+      }
+    </script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -13,8 +20,10 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="icon.png" />
+
+    <noscript>Eu apar daca e dezactivat javascript</noscript>
   </head>
-  <body>
+  <body id="newsfeed">
     <header>
       <div class="container header-container">
         <div class="branding">
@@ -36,60 +45,27 @@
           </form>
         </div>
         <nav>
-          <div class="nav-link">
-            <img src="https://source.unsplash.com/30x30" />
-            <span>Nu</span>
-          </div>
-          <div class="nav-link">
+          <div class="nav-link" id="header_user_info"></div>
+          <div class="nav-link has_dropdown">
             <i class="fas fa-globe-europe"></i>
-            <span class="badge">1</span>
-            <ul class="dropdown" style="display: none">
-              <li>
-                <div class="image">
-                  <img src="https://source.unsplash.com/40x40" />
-                </div>
-                <div class="content">
-                  <p class="title">Notification title</p>
-                  <p class="excerpt">Some short text</p>
-                </div>
-              </li>
-            </ul>
+            <span class="badge" id="notification_badge">1</span>
+            <ul
+              class="dropdown"
+              style="display: none"
+              id="notifications_dropdown"
+            ></ul>
           </div>
-          <div class="nav-link">
+          <div class="nav-link has_dropdown">
             <i class="fas fa-comments"></i>
-            <span class="badge">13</span>
-            <ul class="dropdown" style="display: none">
-              <li>
-                <div class="image">
-                  <img src="https://source.unsplash.com/40x40" />
-                </div>
-                <div class="content">
-                  <p class="title">Nume Prenume</p>
-                  <p class="excerpt">Iesi diseara?</p>
-                </div>
-              </li>
-              <li>
-                <div class="image">
-                  <img src="https://source.unsplash.com/40x40" />
-                </div>
-                <div class="content">
-                  <p class="title">Nume Prenume</p>
-                  <p class="excerpt">Iesi diseara?</p>
-                </div>
-              </li>
-              <li>
-                <div class="image">
-                  <img src="https://source.unsplash.com/40x40" />
-                </div>
-                <div class="content">
-                  <p class="title">Nume Prenume</p>
-                  <p class="excerpt">Iesi diseara?</p>
-                </div>
-              </li>
-            </ul>
+            <span class="badge" id="messages_badge">13</span>
+            <ul
+              class="dropdown"
+              style="display: none"
+              id="messages_dropdown"
+            ></ul>
           </div>
           <div class="nav-link">
-            <i class="fas fa-cog"></i>
+            <i class="fas fa-sign-out-alt" id="logOut"></i>
           </div>
         </nav>
       </div>
@@ -99,261 +75,13 @@
       <aside class="links">
         <div class="sticky">sticky sidebar</div>
       </aside>
-      <main style="height: 2000px">
-        <!-- start single post -->
-        <div class="single-post">
-          <div class="post-header">
-            <div class="author">
-              <img src="https://source.unsplash.com/40x40" />
-              <p>Nume Prenume</p>
-            </div>
-            <div class="post-date">2h</div>
-          </div>
-          <div class="post-content">
-            <img src="img/img1.jpg" alt="nume prenume" />
-          </div>
-          <div class="post-footer">
-            <div class="buttons">
-              <div class="button">
-                <i class="far fa-heart"></i>
-                <span class="label">Like</span>
-                <span class="count">(21)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-comments"></i>
-                <span class="label">Comments</span>
-                <span class="count">(7)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-share-square"></i>
-                <span class="label">Share</span>
-                <span class="count">(3)</span>
-              </div>
-            </div>
-            <div class="comments">
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end single post -->
-        <!-- start single post -->
-        <div class="single-post">
-          <div class="post-header">
-            <div class="author">
-              <img src="https://source.unsplash.com/40x40" />
-              <p>Nume Prenume</p>
-            </div>
-            <div class="post-date">2h</div>
-          </div>
-          <div class="post-content">
-            <p>Am scapat de marea criza de cafea!</p>
-            <video controls autoplay muted>
-              <source src="video/video.webm" type="video/webm" />
-              <source src="video/video.mp4" type="video/mp4" />
-              Your browser does not support HTML5 videos.
-            </video>
-          </div>
-          <div class="post-footer">
-            <div class="buttons">
-              <div class="button">
-                <i class="far fa-heart"></i>
-                <span class="label">Like</span>
-                <span class="count">(21)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-comments"></i>
-                <span class="label">Comments</span>
-                <span class="count">(7)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-share-square"></i>
-                <span class="label">Share</span>
-                <span class="count">(3)</span>
-              </div>
-            </div>
-            <div class="comments">
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end single post -->
-        <!-- start single post -->
-        <div class="single-post">
-          <div class="post-header">
-            <div class="author">
-              <img src="https://source.unsplash.com/40x40" />
-              <p>Nume Prenume</p>
-            </div>
-            <div class="post-date">2h</div>
-          </div>
-          <div class="post-content">
-            <p>Am scapat de marea criza de cafea!</p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Distinctio dolorum a ducimus, aliquam inventore pariatur, suscipit
-              officia error in natus dicta neque vero numquam voluptates rerum
-              magnam? Consequatur nemo animi, reprehenderit odio est iusto
-              dolorem, voluptatem earum vel suscipit pariatur?
-            </p>
-          </div>
-          <div class="post-footer">
-            <div class="buttons">
-              <div class="button">
-                <i class="far fa-heart"></i>
-                <span class="label">Like</span>
-                <span class="count">(21)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-comments"></i>
-                <span class="label">Comments</span>
-                <span class="count">(7)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-share-square"></i>
-                <span class="label">Share</span>
-                <span class="count">(3)</span>
-              </div>
-            </div>
-            <div class="comments">
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end single post -->
-        <!-- start single post -->
-        <div class="single-post">
-          <div class="post-header">
-            <div class="author">
-              <img src="https://source.unsplash.com/40x40" />
-              <p>Nume Prenume</p>
-            </div>
-            <div class="post-date">2h</div>
-          </div>
-          <div class="post-content">
-            <video controls autoplay muted>
-              <source src="video/video.webm" type="video/webm" />
-              <source src="video/video.mp4" type="video/mp4" />
-              Your browser does not support HTML5 videos.
-            </video>
-          </div>
-          <div class="post-footer">
-            <div class="buttons">
-              <div class="button">
-                <i class="far fa-heart"></i>
-                <span class="label">Like</span>
-                <span class="count">(21)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-comments"></i>
-                <span class="label">Comments</span>
-                <span class="count">(7)</span>
-              </div>
-              <div class="button">
-                <i class="far fa-share-square"></i>
-                <span class="label">Share</span>
-                <span class="count">(3)</span>
-              </div>
-            </div>
-            <div class="comments">
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-              <div class="comment">
-                <img src="https://source.unsplash.com/30x30" />
-                <div>
-                  <p>Nume Prenume</p>
-                  <p>Nice pictures.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end single post -->
+      <main style="min-height: 70vh; position: relative">
+        <div id="loading_posts">Loadin pots ...</div>
       </main>
       <aside class="right">
-        <div class="sticky">
-          <div class="friend">
-            <div class="profile-image">
-              <img src="https://source.unsplash.com/30x30" />
-              <div class="status online"></div>
-            </div>
-            <div class="user-details">
-              <p>Nume Prenume</p>
-              <p>Online</p>
-            </div>
-          </div>
-          <div class="friend">
-            <div class="profile-image">
-              <img src="https://source.unsplash.com/30x30" />
-              <div class="status offline"></div>
-            </div>
-            <div class="user-details">
-              <p>Nume Prenume</p>
-              <p>Online 2 days ago</p>
-            </div>
-          </div>
-          <div class="friend">
-            <div class="profile-image">
-              <img src="https://source.unsplash.com/30x30" />
-              <div class="status offline"></div>
-            </div>
-            <div class="user-details">
-              <p>Nume Prenume</p>
-              <p>Online 2 weeks ago</p>
-            </div>
-          </div>
-        </div>
+        <div class="sticky" id="friendsList"></div>
       </aside>
     </div>
+    <script src="js/app.js"></script>
   </body>
 </html>

@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in</title>
+
+    <script>
+      if (localStorage.token !== undefined) {
+        window.location.href = './newsfeed.html';
+      }
+    </script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -18,23 +25,26 @@
     <div class="accountForm">
       <h2>Log in</h2>
       <form action="index.html" method="POST">
+        <p id="log_error"></p>
         <input
           type="email"
           placeholder="E-mail address"
           required
           name="email"
+          id="log_email"
         />
         <!-- name = atribut echivalent cu ce e id pentru javascript dar
         folosit de PHP, C#, ASP.net
         name  este un identificator unic al inputului pentru aceste tehnologii -->
-        <input type="password" placeholder="Password" required name="pass" />
+        <input type="password" placeholder="Password" required name="pass" id="log_pass" />
         <label>
           <input type="checkbox" />
           Remember me
         </label>
-        <input type="submit" value="Log in" />
+        <input type="submit" value="Log in" id="log_button" />
         <p>Don't have an account? <a href="register.html">Register</a></p>
       </form>
     </div>
+    <script src="js/app.js"></script>
   </body>
 </html>

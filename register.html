@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in</title>
+
+    <script>
+      if (localStorage.token !== undefined) {
+        window.location.href = './newsfeed.html';
+      }
+    </script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -17,28 +24,55 @@
   <body class="account">
     <div class="accountForm">
       <h2>Register</h2>
+      <p id="register_error"></p>
       <form action="index.html" method="POST">
-        <input type="text" placeholder="First name" required name="fname" />
-        <input type="text" placeholder="Last name" required name="lname" />
+        <input
+          type="text"
+          placeholder="First name"
+          required
+          name="fname"
+          id="register_fname"
+        />
+        <input
+          type="text"
+          placeholder="Last name"
+          required
+          name="lname"
+          id="register_lname"
+        />
         <input
           type="email"
           placeholder="E-mail address"
           required
           name="email"
+          id="register_email"
         />
-        <input type="password" placeholder="Password" required name="pass" />
-        <input type="password" placeholder="Password" required name="pass2" />
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          name="pass"
+          id="register_pass1"
+        />
+        <input
+          type="password"
+          placeholder="Repeat password"
+          required
+          name="pass2"
+          id="register_pass2"
+        />
         <label>
-          <input type="checkbox" name="newsletter" />
+          <input type="checkbox" name="newsletter" id="register_newsletter" />
           I want to subscribe to newsletter
         </label>
         <label>
-          <input type="checkbox" name="terms" />
+          <input type="checkbox" name="terms" id="register_terms" />
           I agree with the <a href="#">Terms & Conditions</a>
         </label>
-        <input type="submit" value="Create my account" />
+        <input type="submit" value="Create my account" id="button_register" />
         <p>Already have an account? <a href="index.html">Log in</a></p>
       </form>
     </div>
+    <script src="js/app.js"></script>
   </body>
 </html>
